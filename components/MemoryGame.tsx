@@ -3,6 +3,8 @@
 import { useEffect, useState } from "react";
 import "./MemoryGame.css";
 import SingleCard from "./SingleCard";
+import { createReport } from "@/lib/actions/games.actions";
+import { useRouter } from "next/navigation";
 
 const cardImages = [
     { "src": "/assets/images/man2.jpg", matched: false },
@@ -19,9 +21,46 @@ function MemoryGame() {
     const [choiceOne, setChoiceOne] = useState(null);
     const [choiceTwo, setChoiceTwo] = useState(null);
     const [disabled, setDisabled] = useState(false);
+    const [username, setUsername] = useState("");
+    const router = useRouter();
+
+    const names = ['Alice', 'Bob', 'Charlie', 'Diana', 'Eve'];
+
+    const getRandomName = () => {
+        return names[Math.floor(Math.random() * names.length)];
+      };
+
+      useEffect(() => {
+        const randomName = getRandomName();
+        setUsername(randomName);
+      }, [setUsername]);
 
     // shuffle cards
-    const shuffleCards = () => {
+    const shuffleCards = async () => {
+        if(turns > 4 && username !== null){
+            // Submit Repport of user
+            const report = {
+                patientName: username,
+                gameName: "Memory Game",
+                score: turns.toString()
+              };
+              
+              const newReport = await createReport(report);
+              if (newReport) {
+                const shuffledCards = [...cardImages, ...cardImages]
+                    .sort(() => Math.random() - 0.5)
+                    .map(card => ({ ...card, id: Math.random() }));
+
+                setChoiceOne(null);
+                setChoiceTwo(null);
+                setCards(shuffledCards);
+                setTurns(0);
+                router.push(
+                "memory-game"
+                );
+            }
+        }
+        
         const shuffledCards = [...cardImages, ...cardImages]
             .sort(() => Math.random() - 0.5)
             .map(card => ({ ...card, id: Math.random() }));
@@ -72,26 +111,34 @@ function MemoryGame() {
     }, []);
 
     return (
-        <div className="App">
-            <h1>Magic Match</h1>
-            <button onClick={shuffleCards}>New Game</button>
+        <div className="flex justify-center">
+            <div className="App">
+                <h1 className="text-2xl font-bold mb-4">Welcome, {username}</h1>
+                <h1 className="text-4xl font-bold my-3">Magic Match</h1>
+                <button 
+                    className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-700 transition-colors"
+                    onClick={shuffleCards}
+                >
+                    New Game
+                </button>
 
-            <div className="card-grid">
-                {cards.map(card => (
-                    <SingleCard
-                        key={card.id}
-                        card={card}
-                        handleChoice={handleChoice}
-                        flipped={
-                            card === choiceOne ||
-                            card === choiceTwo ||
-                            card.matched
-                        }
-                        disabled={disabled}
-                    />
-                ))}
+                <div className="card-grid">
+                    {cards.map(card => (
+                        <SingleCard
+                            key={card.id}
+                            card={card}
+                            handleChoice={handleChoice}
+                            flipped={
+                                card === choiceOne ||
+                                card === choiceTwo ||
+                                card.matched
+                            }
+                            disabled={disabled}
+                        />
+                    ))}
+                </div>
+                <p>Turns: {turns}</p>
             </div>
-            <p>Turns: {turns}</p>
         </div>
     );
 }
