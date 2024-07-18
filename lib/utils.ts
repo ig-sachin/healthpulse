@@ -1,3 +1,4 @@
+import { names } from "@/constants";
 import { type ClassValue, clsx } from "clsx";
 import { twMerge } from "tailwind-merge";
 
@@ -75,3 +76,7 @@ export function encryptKey(passkey: string) {
 export function decryptKey(passkey: string) {
   return atob(passkey);
 }
+
+export function getRandomName() {
+  return names[Math.floor(Math.random() * names.length)];
+};

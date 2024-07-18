@@ -5,6 +5,7 @@ import "./MemoryGame.css";
 import SingleCard from "./SingleCard";
 import { createReport } from "@/lib/actions/games.actions";
 import { useRouter } from "next/navigation";
+import { getRandomName } from "@/lib/utils";
 
 const cardImages = [
     { "src": "/assets/images/man2.jpg", matched: false },
@@ -23,12 +24,6 @@ function MemoryGame() {
     const [disabled, setDisabled] = useState(false);
     const [username, setUsername] = useState("");
     const router = useRouter();
-
-    const names = ['Alice', 'Bob', 'Charlie', 'Diana', 'Eve'];
-
-    const getRandomName = () => {
-        return names[Math.floor(Math.random() * names.length)];
-      };
 
       useEffect(() => {
         const randomName = getRandomName();
