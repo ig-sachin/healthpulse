@@ -12,7 +12,7 @@
 .glowing-sphere {
     width: 100px;
     height: 100px;
-    background: radial-gradient(circle, rgba(255, 255, 255, 1) 0%, rgb(86, 122, 145) 60%, rgba(0, 0, 0, 0) 100%);
+    background: radial-gradient(circle, rgba(255, 255, 255, 1) 0%, rgb(134, 185, 216) 60%, rgba(0, 0, 0, 0) 100%);
     border-radius: 50%;
     animation: glow 3s infinite;
     margin: 50px;
@@ -22,11 +22,11 @@
 
     0%,
     100% {
-        box-shadow: 0 0 20px 10px rgb(86, 122, 145);
+        box-shadow: 0 0 20px 10px rgb(134, 185, 216);
     }
 
     50% {
-        box-shadow: 0 0 50px 20px rgb(86, 122, 145);
+        box-shadow: 0 0 50px 20px rgb(134, 185, 216);
     }
 }
 
