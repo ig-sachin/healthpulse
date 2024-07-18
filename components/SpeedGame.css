@@ -1,0 +1,44 @@
+.speed-brain-training-game {
+    text-align: center;
+    margin: 20px;
+}
+
+.speed-brain-training-game h1 {
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+.speed-brain-training-game .stimulus {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px;
+}
+
+.speed-brain-training-game .direction {
+    font-size: 5em;
+    margin: 20px;
+}
+
+.speed-brain-training-game .distractions {
+    display: flex;
+    justify-content: center;
+    margin: 5px;
+}
+
+.speed-brain-training-game .distraction {
+    font-size: 3em;
+    margin: 0 10px;
+    color: red;
+}
+
+.speed-brain-training-game p {
+    font-size: 1.5em;
+}
+
+.speed-brain-training-game button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 1em;
+    cursor: pointer;
+}
