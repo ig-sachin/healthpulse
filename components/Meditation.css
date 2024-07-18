@@ -7,15 +7,22 @@
     height: 100vh;
     background-color: #282c34;
     color: white;
+
+}
+
+.meditation-app h1 {
+    font-size: 1.5rem;
+    margin-bottom: 50px;
 }
 
 .glowing-sphere {
-    width: 100px;
-    height: 100px;
+    width: 150px;
+    height: 150px;
     background: radial-gradient(circle, rgba(255, 255, 255, 1) 0%, rgb(134, 185, 216) 60%, rgba(0, 0, 0, 0) 100%);
     border-radius: 50%;
     animation: glow 3s infinite;
-    margin: 50px;
+    margin: 70px;
+    margin-bottom: 80px;
 }
 
 @keyframes glow {
