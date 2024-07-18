@@ -26,6 +26,8 @@ export const PatientFormDefaultValues = {
   privacyConsent: false,
 };
 
+export const names = ['Alice', 'Bob', 'Charlie', 'Diana', 'Eve'];
+
 export const IdentificationTypes = [
   "Birth Certificate",
   "Driver's License",

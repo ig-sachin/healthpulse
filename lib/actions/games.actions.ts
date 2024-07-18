@@ -34,7 +34,6 @@ export const getReports = async () => {
         DATABASE_ID!, 
         REPORT_COLLECTION_ID!
     );
-    console.log(reports);
     
     return parseStringify(reports);
   } catch (error) {
