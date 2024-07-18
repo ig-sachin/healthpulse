@@ -11,7 +11,6 @@
     justify-content: center;
     font-size: calc(10px + 2vmin);
     color: white;
-
 }
 
 .color-game {
@@ -19,10 +18,19 @@
     flex-direction: column;
     align-items: center;
     border: 1px solid white;
+    border-radius: 1rem;
     height: 100%;
     width: 60%;
-    padding: 1rem;
+    padding: 5%;
+    box-sizing: border-box;
 }
+
+
+
+.color-app-header {
+    padding-left: 80%;
+}
+
 
 .color-game h1 {
     font-size: 5em;
@@ -33,4 +41,50 @@
     font-size: 1.5em;
     margin-top: 20px;
     cursor: pointer;
+    border: 1px solid black;
+    border-radius: 0.5rem;
+}
+
+.color-game {
+    text-align: center;
+    margin: 20px;
+}
+
+.color-game h1 {
+    font-size: 3em;
+}
+
+.color-game .buttons {
+    margin: 20px;
+}
+
+.color-game button {
+    margin: 5px;
+    padding: 10px;
+    font-size: 1em;
+    color: white;
+    border: none;
+    cursor: pointer;
+    /* background-co: palevioletred; */
+}
+
+.color-game button:hover {
+    opacity: 0.8;
+
+}
+
+.color-game p {
+    font-size: 1.5em;
+}
+
+.color-app-header p {
+    font-size: 1.5rem;
+}
+
+.temp {
+    margin-right: 1rem;
+}
+
+.new-color-button {
+    background-color: crimson;
 }
