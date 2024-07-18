@@ -13,6 +13,13 @@ declare interface CreateUserParams {
   email: string;
   phone: string;
 }
+
+declare interface CreateReportParams {
+  patientName: string;
+  gameName: string;
+  score: string;
+}
+
 declare interface User extends CreateUserParams {
   $id: string;
 }
