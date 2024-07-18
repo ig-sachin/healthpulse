@@ -1,12 +1,12 @@
 'use client';
-// src/components/MeditationApp.js
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import './Meditation.css';
 
 const Meditation = () => {
     const [timeLeft, setTimeLeft] = useState(300); // 5 minutes
     const [isMeditating, setIsMeditating] = useState(false);
     const [intervalId, setIntervalId] = useState(null);
+    const audioRef = useRef(null);
 
     useEffect(() => {
         if (timeLeft === 0) {
@@ -14,6 +14,15 @@ const Meditation = () => {
             setIsMeditating(false);
         }
     }, [timeLeft, intervalId]);
+
+    useEffect(() => {
+        if (isMeditating) {
+            audioRef.current.play();
+        } else {
+            audioRef.current.pause();
+            audioRef.current.currentTime = 0; // Optional: Reset playback position
+        }
+    }, [isMeditating]);
 
     const startMeditation = () => {
         setIsMeditating(true);
@@ -34,7 +43,7 @@ const Meditation = () => {
 
     return (
         <div className="meditation-app">
-            <h1>Meditation App</h1>
+            <h1>Meditation Zone</h1>
             <div className="glowing-sphere"></div>
             <p>{formatTime(timeLeft)}</p>
             <div className="controls">
@@ -44,6 +53,7 @@ const Meditation = () => {
                     <button onClick={startMeditation}>Start</button>
                 )}
             </div>
+            <audio ref={audioRef} src="/sound.mp3" loop />
         </div>
     );
 };
