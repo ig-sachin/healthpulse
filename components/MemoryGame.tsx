@@ -50,9 +50,7 @@ function MemoryGame() {
                 setChoiceTwo(null);
                 setCards(shuffledCards);
                 setTurns(0);
-                router.push(
-                "memory-game"
-                );
+                router.push("memory-game");
             }
         }
         

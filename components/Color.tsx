@@ -13,7 +13,7 @@ const ColorGame = () => {
   const [colorName, setColorName] = useState('');
   const [fontColor, setFontColor] = useState('');
   const [score, setScore] = useState(0);
-  const [timeLeft, setTimeLeft] = useState(60);
+  const [timeLeft, setTimeLeft] = useState(10);
   const [gameOver, setGameOver] = useState(false);
   const [username, setUsername] = useState("");
   const router = useRouter();
@@ -76,7 +76,7 @@ const ColorGame = () => {
         const newReport = await createReport(report);
         if (newReport) {
           setScore(0);
-          setTimeLeft(60);
+          setTimeLeft(10);
           setGameOver(false);
           generateNewColors();
           router.push("color-game");
@@ -84,7 +84,7 @@ const ColorGame = () => {
     }
 
     setScore(0);
-    setTimeLeft(60);
+    setTimeLeft(10);
     setGameOver(false);
     generateNewColors();
   };

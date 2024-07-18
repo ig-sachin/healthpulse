@@ -1,6 +1,9 @@
 'use client';
 import React, { useState, useEffect, useRef } from 'react';
 import './SpeedGame.css';
+import { useRouter } from 'next/navigation';
+import { getRandomName } from '@/lib/utils';
+import { createReport } from '@/lib/actions/games.actions';
 
 const directions = ['ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight'];
 
@@ -16,8 +19,15 @@ const SpeedGame = () => {
     const [startTime, setStartTime] = useState(null);
     const [responseTimes, setResponseTimes] = useState([]);
     const [gameOver, setGameOver] = useState(false);
-    const [timeLeft, setTimeLeft] = useState(60);
+    const [timeLeft, setTimeLeft] = useState(10);
     const timerRef = useRef(null);
+    const [username, setUsername] = useState("");
+    const router = useRouter();
+
+    useEffect(() => {
+        const randomName = getRandomName();
+        setUsername(randomName);
+    }, [setUsername]);
 
     const generateNewStimulus = () => {
         const newDirection = getRandomElement(directions);
@@ -70,12 +80,24 @@ const SpeedGame = () => {
         };
     }, []);
 
-    const handleRestart = () => {
+    const handleRestart = async () => {
+        console.log("Speed game ", username, averageResponseTime);
+
+        const report = {
+            patientName: username,
+            gameName: "Speed Game",
+            score: averageResponseTime.toString()
+        };
+        const newReport = await createReport(report);
+        if (newReport) {
+            console.log("Report is created!");
+
+        }
         setCurrentDirection(getRandomElement(directions));
         setDistractions([]);
         setResponseTimes([]);
         setGameOver(false);
-        setTimeLeft(60);
+        setTimeLeft(10);
         setStartTime(Date.now());
         timerRef.current = setInterval(() => {
             setTimeLeft((prev) => {
@@ -94,40 +116,48 @@ const SpeedGame = () => {
         : 0;
 
     return (
-        <div className="speed-brain-training-game">
-            <h1>Speed Brain Training Game</h1>
-            {!gameOver ? (
-                <>
-                    <div className="stimulus">
-                        <div className="direction">
-                            {currentDirection === 'ArrowUp' && '↑'}
-                            {currentDirection === 'ArrowDown' && '↓'}
-                            {currentDirection === 'ArrowLeft' && '←'}
-                            {currentDirection === 'ArrowRight' && '→'}
-                        </div>
-                        {distractions.map((distraction, index) => (
-                            <div
-                                key={index}
-                                className="distraction"
-                                style={{ top: distraction.position.top, left: distraction.position.left }}
-                            >
-                                {distraction.direction === 'ArrowUp' && '↑'}
-                                {distraction.direction === 'ArrowDown' && '↓'}
-                                {distraction.direction === 'ArrowLeft' && '←'}
-                                {distraction.direction === 'ArrowRight' && '→'}
+        <div className="flex flex-col justify-center items-center speed-brain-training-game h-screen">
+            <div className="border-2 border-gray-300 p-20 rounded-lg shadow-lg bg-dark">
+                <h1 className="text-2xl font-bold mb-4">Welcome, {username}</h1>
+                <h1 className="text-4xl font-bold my-3">Speed Brain Training Game</h1>
+                {!gameOver ? (
+                    <>
+                        <div className="stimulus mb-6">
+                            <div className="direction text-6xl">
+                                {currentDirection === 'ArrowUp' && '↑'}
+                                {currentDirection === 'ArrowDown' && '↓'}
+                                {currentDirection === 'ArrowLeft' && '←'}
+                                {currentDirection === 'ArrowRight' && '→'}
                             </div>
-                        ))}
-                    </div>
-                    <p>Time Left: {timeLeft} seconds</p>
-                    <p>Average Response Time: {averageResponseTime.toFixed(2)} ms</p>
-                </>
-            ) : (
-                <>
-                    <p>Game Over!</p>
-                    <p>Average Response Time: {averageResponseTime.toFixed(2)} ms</p>
-                    <button onClick={handleRestart}>Restart Game</button>
-                </>
-            )}
+                            {distractions.map((distraction, index) => (
+                                <div
+                                    key={index}
+                                    className="distraction text-4xl absolute"
+                                    style={{ top: distraction.position.top, left: distraction.position.left }}
+                                >
+                                    {distraction.direction === 'ArrowUp' && '↑'}
+                                    {distraction.direction === 'ArrowDown' && '↓'}
+                                    {distraction.direction === 'ArrowLeft' && '←'}
+                                    {distraction.direction === 'ArrowRight' && '→'}
+                                </div>
+                            ))}
+                        </div>
+                        <p className="text-lg mb-2">Time Left: {timeLeft} seconds</p>
+                        <p className="text-lg mb-4">Average Response Time: {averageResponseTime.toFixed(2)} ms</p>
+                    </>
+                ) : (
+                    <>
+                        <p className="text-xl font-bold mb-4">Game Over!</p>
+                        <p className="text-lg mb-2">Average Response Time: {averageResponseTime.toFixed(2)} ms</p>
+                        <button
+                            className="bg-blue-500 text-white px-4 py-2 rounded-lg shadow-md hover:bg-blue-700 transition-colors"
+                            onClick={handleRestart}
+                        >
+                            Restart Game
+                        </button>
+                    </>
+                )}
+            </div>
         </div>
     );
 };

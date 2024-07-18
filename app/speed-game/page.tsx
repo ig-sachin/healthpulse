@@ -6,7 +6,7 @@ const page = () => {
     return (
         <div className="flex h-screen max-h-screen">
             <Navbar />
-            <div className="flex flex-col h-screen max-h-screen pt-16">
+            <div className="flex flex-col h-screen max-h-screen pt-16 w-full">
                 <SpeedGame />
             </div>
         </div >

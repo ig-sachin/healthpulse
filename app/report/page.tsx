@@ -1,4 +1,3 @@
-import { StatCard } from '@/components/StatCard';
 import { DataTable } from '@/components/table/DataTable';
 import { columns } from '@/components/table/gameColumns';
 import Image from "next/image";
