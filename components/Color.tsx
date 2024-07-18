@@ -7,7 +7,7 @@ import { getRandomName } from '@/lib/utils';
 import { createReport } from '@/lib/actions/games.actions';
 
 const colors = ['Red', 'Blue', 'Green', 'Yellow', 'Orange', 'Purple'];
-const getRandomElement = (arr) => arr[Math.floor(Math.random() * arr.length)];
+const getRandomElement = (arr: string | any[]) => arr[Math.floor(Math.random() * arr.length)];
 
 const ColorGame = () => {
   const [colorName, setColorName] = useState('');
@@ -52,7 +52,7 @@ const ColorGame = () => {
     generateNewColors();
   };
 
-  const handleColorButtonClick = (color) => {
+  const handleColorButtonClick = (color: string) => {
     if (color === fontColor) {
       setScore(score + 1);
     } else {

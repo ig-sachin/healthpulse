@@ -3,7 +3,8 @@ import Link from "next/link";
 
 import { PatientForm } from "@/components/forms/PatientForm";
 import { PasskeyModal } from "@/components/PasskeyModal";
-import Navbar from "@/components/Navbar"
+import Navbar from "@/components/Navbar";
+import Box from "@/components/Box";
 
 const Home = ({ searchParams }: SearchParamProps) => {
   const isAdmin = searchParams?.admin === "true";
@@ -15,6 +16,18 @@ const Home = ({ searchParams }: SearchParamProps) => {
         <Navbar />
         <div className="sub-container max-w-[496px]">
           <div className="text-14-regular mt-20 flex justify-between">
+            <Box
+            imageUrl="/assets/images/onboarding-img.png"
+            altText=""
+            description="Memory Game"
+            linkTo="memory-game"
+          />
+          <Box
+            imageUrl="/assets/images/onboarding-img.png"
+            altText=""
+            description="Color Game"
+            linkTo="color-game"
+          />
           </div>
         </div>
       </section>
