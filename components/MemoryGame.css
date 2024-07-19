@@ -14,6 +14,10 @@ button {
     padding: 6px 12px;
 }
 
+.turns {
+    transform: translate(625px, -300px);
+}
+
 button:hover {
     background: #c23866;
     color: #fff;
