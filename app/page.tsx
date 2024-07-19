@@ -3,7 +3,8 @@ import Link from "next/link";
 
 import { PatientForm } from "@/components/forms/PatientForm";
 import { PasskeyModal } from "@/components/PasskeyModal";
-import Navbar from "@/components/Navbar"
+import Navbar from "@/components/Navbar";
+import Box from "@/components/Box";
 
 const Home = ({ searchParams }: SearchParamProps) => {
   const isAdmin = searchParams?.admin === "true";
@@ -14,8 +15,26 @@ const Home = ({ searchParams }: SearchParamProps) => {
       <section className="remove-scrollbar container my-auto">
         <Navbar />
         <div className="sub-container max-w-[496px]">
-          <div className="text-14-regular mt-20 flex justify-between">
-          </div>
+          <div className="text-14-regular mt-20 flex flex-col justify-between">
+            <Box
+            imageUrl="/assets/images/memory.png"
+            altText=""
+            description="Memory Game"
+            linkTo="memory-game"
+          />
+          <Box
+            imageUrl="/assets/images/colorgame.png"
+            altText=""
+            description="Color Game"
+            linkTo="color-game"
+          />
+          <Box
+            imageUrl="/assets/images/speedgame.png"
+            altText=""
+            description="Speed Game"
+            linkTo="speed-game"
+          />
+          </div> 
         </div>
       </section>
 
