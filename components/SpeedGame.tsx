@@ -235,12 +235,8 @@ const SpeedGame = () => {
                         </button>
                     </>
                 )}
-<<<<<<< HEAD
-            </div>
-            <audio ref={audioRef} src="/nature-171968.mp3" loop />
-=======
             </div>)}
->>>>>>> 98a8dea45d46922d8d2d7e4acfe19de9d26d5720
+            <audio ref={audioRef} src="/nature-171968.mp3" loop />
         </div>
     );
 };

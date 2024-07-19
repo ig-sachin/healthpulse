@@ -14,37 +14,51 @@ const Home = ({ searchParams }: SearchParamProps) => {
       {isAdmin && <PasskeyModal />}
       <section className="remove-scrollbar container my-auto">
         <Navbar />
-        <div className="sub-container max-w-[496px]">
-          <div className="text-14-regular mt-20 flex flex-col justify-between">
-            <Box
-            imageUrl="/assets/images/memory.png"
-            altText=""
-            description="Memory Game"
-            linkTo="memory-game"
-          />
-          <Box
-            imageUrl="/assets/images/colorgame.png"
-            altText=""
-            description="Color Game"
-            linkTo="color-game"
-          />
-          <Box
-            imageUrl="/assets/images/speedgame.png"
-            altText=""
-            description="Speed Game"
-            linkTo="speed-game"
-          />
-          </div> 
+        <div className="sub-container w-full">
+          <div className="flex flex-wrap text-14-regular mt-20 flex flex-col justify-between" style={{flexDirection: 'row'}}>
+            <div className="max-w-80">
+              <Box
+                imageUrl="/assets/images/memory.png"
+                altText=""
+                description="Memory Game"
+                linkTo="memory-game"
+              />
+            </div>
+            <div className="max-w-lg">
+              <Box
+                imageUrl="/assets/images/colorgame.png"
+                altText=""
+                description="Color Game"
+                linkTo="color-game"
+              />
+            </div>
+            <div className="max-w-90">
+              <Box
+                imageUrl="/assets/images/speedgame.png"
+                altText=""
+                description="Speed Game"
+                linkTo="speed-game"
+              />
+            </div>
+            <div className="max-w-80">
+              <Box
+                imageUrl="/assets/images/meditation.png"
+                altText=""
+                description="Meditation Game"
+                linkTo="meditation-game"
+              />
+            </div>
+          </div>
         </div>
       </section>
 
-      <Image
+      {/* <Image
         src="/assets/images/onboarding-img.png"
         height={1000}
         width={1000}
         alt="patient"
         className="side-img max-w-[50%]"
-      />
+      /> */}
     </div>
   );
 };

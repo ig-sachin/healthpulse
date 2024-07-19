@@ -4,15 +4,14 @@ import Navbar from '@/components/Navbar';
 import React, { useState } from 'react';
 import Image from "next/image";
 import FAQ from '@/components/FAQ';
-import BlogSlider from '@/components/BlogSlider';
 
 const Page = () => {
     const teamMembers = [
         { name: 'Sachin Vishwakarma', role: 'Lead Developer', photo: '/assets/images/sachin.jpeg' },
         { name: 'Rucha Vaikar', role: 'Backend Dev', photo: '/assets/images/rucha.png' },
         { name: 'Anjali Dofe', role: 'Frontend Dev', photo: '/assets/images/anjali.png' },
-        { name: 'Sakshi Kumari', role: 'Support', photo: '/assets/images/sakshi.png' },
-        { name: 'Manansh Arora', role: 'Lead Developer', photo: '/assets/images/manansh.png' },
+        { name: 'Sakshi Kumari', role: 'Frontend Dev', photo: '/assets/images/sakshi.png' },
+        { name: 'Manansh Arora', role: 'Co-Developer', photo: '/assets/images/manansh.png' },
         { name: 'Vidisha Pandey', role: 'Backend Dev', photo: '/assets/images/vidisha.png' },
         { name: 'Prajjwal Singh', role: 'Game Developer', photo: '/assets/images/prajjwal.png' },
     ];
