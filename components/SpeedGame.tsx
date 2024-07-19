@@ -6,7 +6,6 @@ import { getRandomName } from '@/lib/utils';
 import { createReport } from '@/lib/actions/games.actions';
 
 const directions = ['ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight'];
-
 const getRandomElement = (arr) => arr[Math.floor(Math.random() * arr.length)];
 const getRandomPosition = () => ({
     top: `${Math.floor(Math.random() * 80) + 10}%`,
@@ -23,6 +22,16 @@ const SpeedGame = () => {
     const timerRef = useRef(null);
     const [username, setUsername] = useState("");
     const router = useRouter();
+    const audioRef = useRef(null);
+
+    useEffect(() => {
+        if (gameOver === false) {
+            audioRef.current.play();
+        } else {
+            audioRef.current.pause();
+            audioRef.current.currentTime = 0; // Optional: Reset playback position
+        }
+    }, [gameOver]);
 
     useEffect(() => {
         const randomName = getRandomName();
@@ -91,7 +100,6 @@ const SpeedGame = () => {
         const newReport = await createReport(report);
         if (newReport) {
             console.log("Report is created!");
-
         }
         setCurrentDirection(getRandomElement(directions));
         setDistractions([]);
@@ -158,6 +166,7 @@ const SpeedGame = () => {
                     </>
                 )}
             </div>
+            <audio ref={audioRef} src="/nature-171968.mp3" loop />
         </div>
     );
 };
