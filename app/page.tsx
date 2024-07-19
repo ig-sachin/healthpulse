@@ -22,7 +22,7 @@ const Home = ({ searchParams }: SearchParamProps) => {
               <Box
                 imageUrl="/assets/images/memory.png"
                 altText=""
-                description="Memory Match"
+                description="Magic Match"
                 linkTo="memory-game"
               />
             </div>
