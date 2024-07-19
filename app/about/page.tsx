@@ -22,16 +22,16 @@ const Page = () => {
             answer: "Our website features a variety of games designed to stimulate the mind and keep dementia patients engaged. These games are carefully curated to help improve cognitive function and provide entertainment."
         },
         {
-            question: "How does the facial recognition feature work?",
-            answer: "With our facial recognition feature, users can take a photo of a person and the website will help remind them who they are. This can be incredibly useful for patients who have difficulty remembering faces."
+            question: "What are the benefits of playing games for people with dementia?",
+            answer: "Playing games can help improve cognitive function, enhance memory, and provide mental stimulation. They also offer opportunities for social interaction, reduce stress, and promote a sense of accomplishment."
         },
         {
-            question: "What can the virtual nurse chatbot assist with?",
-            answer: "Our virtual nurse chatbot is available to assist users with various tasks and provide support. The chatbot can answer questions, give reminders about medications, and much more."
+            question: "Are there any special instructions for caregivers or family members?",
+            answer: "Yes, caregivers and family members should ensure the game environment is comfortable and free of distractions. Guide the player through the game initially if needed, and adjust settings to suit their preferences, such as difficulty levels or screen size."
         },
         {
-            question: "Can I customize the features for my needs?",
-            answer: "Yes, our website allows users to customize certain features to better suit their needs. You can personalize settings for games, reminders, and more."
+            question: "Where can I find more information or get help?",
+            answer: "For more information and assistance, please visit our website at UK Dementia. You can find detailed information, support resources, and contact options to help you with any questions or concerns."
         }
     ];
 
