@@ -22,7 +22,7 @@ const Box: React.FC<BoxProps> = ({ imageUrl, altText, description, linkTo }) => 
           alt={altText}
           width={200}
           height={200}
-          style={{ maxHeight: 140 }}
+          // style={{ maxHeight: 140 }}
           className="object-cover rounded-md"
         />
       </div>

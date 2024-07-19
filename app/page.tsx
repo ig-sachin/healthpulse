@@ -11,7 +11,13 @@ const Home = ({ searchParams }: SearchParamProps) => {
       <section className="remove-scrollbar container my-auto">
         <Navbar />
         <div className="sub-container w-full">
-          <div className="flex flex-wrap text-14-regular mt-20 flex flex-col justify-between" style={{flexDirection: 'row'}}>
+          <h1 className="text-3xl font-bold text-center mt-10 mb-8">
+            Boost Your Memory and Have Fun!
+          </h1>
+          <div
+            className="flex flex-wrap text-14-regular mt-20 flex flex-col justify-between"
+            style={{ flexDirection: "row" }}
+          >
             <div className="max-w-80">
               <Box
                 imageUrl="/assets/images/memory.png"
@@ -22,7 +28,7 @@ const Home = ({ searchParams }: SearchParamProps) => {
             </div>
             <div className="max-w-lg">
               <Box
-                imageUrl="/assets/images/colorgame.png"
+                imageUrl="/assets/images/colorgame.jpeg"
                 altText=""
                 description="Color Game"
                 linkTo="color-game"
@@ -30,7 +36,7 @@ const Home = ({ searchParams }: SearchParamProps) => {
             </div>
             <div className="max-w-90">
               <Box
-                imageUrl="/assets/images/speedgame.png"
+                imageUrl="/assets/images/speedgame.jpeg"
                 altText=""
                 description="Speed Game"
                 linkTo="speed-game"
@@ -38,7 +44,7 @@ const Home = ({ searchParams }: SearchParamProps) => {
             </div>
             <div className="max-w-80">
               <Box
-                imageUrl="/assets/images/meditation.png"
+                imageUrl="/assets/images/meditation.jpeg"
                 altText=""
                 description="Meditation Game"
                 linkTo="meditation-game"
