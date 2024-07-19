@@ -15,20 +15,26 @@ const Home = ({ searchParams }: SearchParamProps) => {
       <section className="remove-scrollbar container my-auto">
         <Navbar />
         <div className="sub-container max-w-[496px]">
-          <div className="text-14-regular mt-20 flex justify-between">
+          <div className="text-14-regular mt-20 flex flex-col justify-between">
             <Box
-            imageUrl="/assets/images/onboarding-img.png"
+            imageUrl="/assets/images/memory.png"
             altText=""
             description="Memory Game"
             linkTo="memory-game"
           />
           <Box
-            imageUrl="/assets/images/onboarding-img.png"
+            imageUrl="/assets/images/colorgame.png"
             altText=""
             description="Color Game"
             linkTo="color-game"
           />
-          </div>
+          <Box
+            imageUrl="/assets/images/speedgame.png"
+            altText=""
+            description="Speed Game"
+            linkTo="speed-game"
+          />
+          </div> 
         </div>
       </section>
 

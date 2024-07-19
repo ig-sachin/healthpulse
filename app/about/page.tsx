@@ -8,12 +8,13 @@ import BlogSlider from '@/components/BlogSlider';
 
 const Page = () => {
     const teamMembers = [
-        { name: 'Sachin Vishwakarma', role: 'Frontend Developer', photo: '/assets/images/dr-green.png' },
-        { name: 'Rucha Vaikar', role: 'AIML', photo: '/assets/images/dr-green.png' },
-        { name: 'Anjali Dofe', role: 'Support', photo: '/assets/images/dr-green.png' },
-        { name: 'Sakshi Kumari', role: 'AIML', photo: '/assets/images/dr-green.png' },
-        { name: 'Manansh Arora', role: 'Lead Developer', photo: '/assets/images/dr-green.png' },
-        { name: 'Prajjwal Singh', role: 'Game Developer', photo: '/assets/images/dr-green.png' },
+        { name: 'Sachin Vishwakarma', role: 'Lead Developer', photo: '/assets/images/sachin.jpeg' },
+        { name: 'Rucha Vaikar', role: 'Backend Dev', photo: '/assets/images/rucha.png' },
+        { name: 'Anjali Dofe', role: 'Frontend Dev', photo: '/assets/images/anjali.png' },
+        { name: 'Sakshi Kumari', role: 'Support', photo: '/assets/images/sakshi.png' },
+        { name: 'Manansh Arora', role: 'Lead Developer', photo: '/assets/images/manansh.png' },
+        { name: 'Vidisha Pandey', role: 'Backend Dev', photo: '/assets/images/vidisha.png' },
+        { name: 'Prajjwal Singh', role: 'Game Developer', photo: '/assets/images/prajjwal.png' },
     ];
 
     const faqs = [
@@ -35,24 +36,6 @@ const Page = () => {
         }
     ];
 
-    const blogs = [
-        {
-            title: "Living with Dementia: John's Story",
-            content: "John shares his experience living with dementia and how he stays positive.",
-            image: "/assets/images/john.jpg",
-        },
-        {
-            title: "Caring for a Loved One with Dementia",
-            content: "Jane talks about the challenges and rewards of caring for her mother.",
-            image: "/assets/images/jane.jpg",
-        },
-        {
-            title: "Staying Active with Dementia",
-            content: "Mark discusses how physical activity has helped him manage his condition.",
-            image: "/assets/images/mark.jpg",
-        },
-    ];
-
     return (
         <>
             <Navbar />
@@ -65,6 +48,8 @@ const Page = () => {
                                 <img
                                     src={member.photo}
                                     alt={member.name}
+                                    width={50}
+                                    height={25}
                                     className="w-18 h-18 rounded-full mx-auto mb-2"
                                 />
                                 <h2 className="text-xl font-semibold">{member.name}</h2>
@@ -139,10 +124,6 @@ const Page = () => {
                         ))}
                     </div>
                 </section>
-                {/* <section className="flex-grow p-4">
-                    <h2 className="text-xl font-bold mb-4">Blogs</h2>
-                    <BlogSlider blogs={blogs} />
-                </section> */}
             </div>
         </>
     )
