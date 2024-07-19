@@ -44,6 +44,7 @@ const Meditation = () => {
     return (
         <div className="meditation-app">
             <h1>Meditation Zone</h1>
+            <h2>Breath In and Out with the Light</h2>
             <div className="glowing-sphere"></div>
             <p>{formatTime(timeLeft)}</p>
             <div className="controls">

@@ -16,7 +16,7 @@ const Home = ({ searchParams }: SearchParamProps) => {
               <Box
                 imageUrl="/assets/images/memory.png"
                 altText=""
-                description="Memory Game"
+                description="Memory Match"
                 linkTo="memory-game"
               />
             </div>
@@ -24,7 +24,7 @@ const Home = ({ searchParams }: SearchParamProps) => {
               <Box
                 imageUrl="/assets/images/colorgame.png"
                 altText=""
-                description="Color Game"
+                description="True Color"
                 linkTo="color-game"
               />
             </div>
@@ -32,7 +32,7 @@ const Home = ({ searchParams }: SearchParamProps) => {
               <Box
                 imageUrl="/assets/images/speedgame.png"
                 altText=""
-                description="Speed Game"
+                description="Arrow Dash"
                 linkTo="speed-game"
               />
             </div>
@@ -40,7 +40,7 @@ const Home = ({ searchParams }: SearchParamProps) => {
               <Box
                 imageUrl="/assets/images/meditation.png"
                 altText=""
-                description="Meditation Game"
+                description="Serenity Sync"
                 linkTo="meditation-game"
               />
             </div>

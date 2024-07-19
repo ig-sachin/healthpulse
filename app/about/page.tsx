@@ -64,8 +64,8 @@ const Page = () => {
                             <Image
                                 src="/assets/images/games.png"
                                 alt="Games for Dementia Patients"
-                                width={200}
-                                height={200}
+                                width={500}
+                                height={500}
                                 className="w-fit h-auto"
                             />
                         </div>
@@ -78,7 +78,7 @@ const Page = () => {
                     </div>
 
                     {/* Second Card: Facial Recognition */}
-                    <div className="flex flex-col md:flex-row items-center bg-gradient-to-r from-green-200 to-green-400 p-4 rounded-lg shadow-lg" style={{ maxWidth: '60%' }}>
+                    {/* <div className="flex flex-col md:flex-row items-center bg-gradient-to-r from-green-200 to-green-400 p-4 rounded-lg shadow-lg" style={{ maxWidth: '60%' }}>
                         <div className="w-full md:w-1/2 p-4">
                             <h2 className="text-2xl font-bold mb-2 text-neutral-500">Facial Recognition</h2>
                             <p className="text-lg text-neutral-500">
@@ -94,9 +94,9 @@ const Page = () => {
                                 className="w-fit h-auto"
                             />
                         </div>
-                    </div>
+                    </div> */}
 
-                    {/* Third Card: Virtual Nurse Chatbot */}
+                    {/* Third Card: Virtual Nurse Chatbot
                     <div className="flex flex-col md:flex-row items-center bg-gradient-to-r from-purple-200 to-purple-400 p-4 rounded-lg shadow-lg" style={{ maxWidth: '60%' }}>
                         <div className="w-full md:w-1/2 p-4 flex justify-center md:justify-start">
                             <Image
@@ -113,7 +113,7 @@ const Page = () => {
                                 Our virtual nurse chatbot is available to assist users with various tasks and provide support. The chatbot can answer questions, give reminders about medications, and much more.
                             </p>
                         </div>
-                    </div>
+                    </div> */}
                 </section>
                 <section className="flex-col items-center flex-grow p-4 w-full">
                     <h1 className="flex justify-center text-2xl font-bold my-4">FAQ'S</h1>
