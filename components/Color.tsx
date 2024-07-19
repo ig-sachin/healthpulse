@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import './ColorGame.css';
 import { useRouter } from 'next/navigation';
 import { getRandomName } from '@/lib/utils';
@@ -19,11 +19,22 @@ const ColorGame = () => {
   const [showModal, setShowModal] = useState(true);
   const [showInstructions, setShowInstructions] = useState(false);
   const router = useRouter();
+  const audioRef = useRef(null);
 
   useEffect(() => {
     const randomName = getRandomName();
     setUsername(randomName);
   }, [setUsername]);
+
+  useEffect(() => {
+    if (gameOver === false) {
+      audioRef.current.play();
+    } else {
+      audioRef.current.pause();
+      audioRef.current.currentTime = 0; // Optional: Reset playback position
+    }
+  }, [gameOver]);
+
 
   const generateNewColors = () => {
     const newColorName = getRandomElement(colors);
@@ -191,6 +202,7 @@ const ColorGame = () => {
           )}
         </div>)}
       </header>
+      <audio ref={audioRef} src="/sound.mp3" loop />
     </div>
   );
 };

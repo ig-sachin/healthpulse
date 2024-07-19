@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import "./MemoryGame.css";
 import SingleCard from "./SingleCard";
 import { createReport } from "@/lib/actions/games.actions";
@@ -20,18 +20,29 @@ const cardImages = [
 function MemoryGame() {
     const [cards, setCards] = useState([]);
     const [turns, setTurns] = useState(0);
+    const [gameOver, setGameOver] = useState(false);
     const [choiceOne, setChoiceOne] = useState(null);
     const [choiceTwo, setChoiceTwo] = useState(null);
     const [disabled, setDisabled] = useState(false);
     const [username, setUsername] = useState("");
     const [showModal, setShowModal] = useState(true);
     const [showInstructions, setShowInstructions] = useState(false);
+    const audioRef = useRef(null);
     const router = useRouter();
 
     useEffect(() => {
         const randomName = getRandomName();
         setUsername(randomName);
     }, [setUsername]);
+
+    useEffect(() => {
+        if (gameOver === false) {
+            audioRef.current.play();
+        } else {
+            audioRef.current.pause();
+            audioRef.current.currentTime = 0; // Optional: Reset playback position
+        }
+    }, [gameOver]);
 
     const shuffleCards = async () => {
         if (turns > 4 && username !== null) {
@@ -201,6 +212,7 @@ function MemoryGame() {
                     </div>
                 )}
             </div>
+            <audio ref={audioRef} src="/nature-171968.mp3" loop />
         </div>
     );
 }
