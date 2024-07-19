@@ -197,7 +197,7 @@ function MemoryGame() {
                                 />
                             ))}
                         </div>
-                        <p>Turns: {turns}</p>
+                        <p className="text-4xl font-bold turns">Turns: {turns}</p>
                     </div>
                 )}
             </div>
